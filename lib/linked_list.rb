@@ -49,6 +49,17 @@ class LinkedList
     almost_tail.next = nil
     temp.data
   end
+
+  def count
+    counter = 1
+    current = @head
+    while current.next
+      current = current.next
+      counter += 1
+    end
+    counter
+  end
+
 end
 
 class Node

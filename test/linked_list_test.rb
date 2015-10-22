@@ -95,4 +95,18 @@ class LinkedListTest < MiniTest::Test
     assert_equal "gravy", list.tail.data
   end
 
+  def test_it_can_count_number_of_nodes
+    list = LinkedList.new("pizza")
+
+    assert_equal 1, list.count
+
+    list.push("gravy")
+    list.push("cheese")
+
+    assert_equal 3, list.count
+
+    list.pop
+
+    assert_equal 2, list.count
+  end
 end
