@@ -4,17 +4,7 @@ require "./lib/linked_list.rb"
 
 class LinkedListTest < MiniTest::Test
 
-  def test_node_has_data
-    node = Node.new("thing")
 
-    assert_equal "thing", node.data
-  end
-
-  def test_node_has_no_next_by_default
-    node = Node.new("thing")
-
-    refute node.next
-  end
 
   def test_a_linked_list_can_be_created_with_a_node
     list = LinkedList.new("pizza")
@@ -27,7 +17,7 @@ class LinkedListTest < MiniTest::Test
     list = LinkedList.new("pizza")
 
     assert list.head.is_a?(Node)
-    assert "pizza", list.head.data
+    assert_equal "pizza", list.head.data
   end
 
   def test_you_can_push_a_node
@@ -35,7 +25,7 @@ class LinkedListTest < MiniTest::Test
 
     list.push("gravy")
 
-    assert "gravy", list.head.next.data
+    assert_equal "gravy", list.head.next.data
   end
 
   def test_you_can_push_multiple_nodes

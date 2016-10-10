@@ -16,7 +16,8 @@ class LinkedList
     until current.next.nil?
       current = current.next
     end
-    current
+
+    return current
   end
 
   def almost_tail
@@ -25,12 +26,12 @@ class LinkedList
     until current.next.next.nil?
       current = current.next
     end
-    current
+    return current
   end
 
   def recursive_almost_tail(current = @head)
     if current.next.next.nil?
-      current
+      return current
     else
       recursive_almost_tail(current.next)
     end
@@ -38,7 +39,7 @@ class LinkedList
 
   def recursive_tail(current = @head)
     if current.next.nil?
-      current
+      return current
     else
       recursive_tail(current.next)
     end
@@ -47,7 +48,7 @@ class LinkedList
   def pop
     temp = almost_tail.next
     almost_tail.next = nil
-    temp.data
+    return temp.data
   end
 
   def count
@@ -57,18 +58,7 @@ class LinkedList
       current = current.next
       counter += 1
     end
-    counter
+    return counter
   end
 
-end
-
-class Node
-
-  attr_accessor :next
-  attr_reader :data
-
-  def initialize(data)
-    @data = data
-    @next = nil
-  end
 end
